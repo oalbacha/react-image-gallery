@@ -3,6 +3,7 @@ $ig-xsmall-screen: 480px !default;
 $ig-white: #fff !default;
 $ig-black: #000 !default;
 $ig-blue: #337ab7 !default;
+$ig-orange: #FF8A31 !default;
 $ig-background-black: rgba(0, 0, 0, .4) !default;
 $ig-transparent: rgba(0, 0, 0, 0) !default;
 
@@ -26,9 +27,11 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
   filter: drop-shadow(0 2px 2px lighten($ig-black, 10%));
 
   @media (min-width: $ig-small-screen) {
+
     // Don't hover on screens smaller than small
     &:hover {
-      color: $ig-blue;
+      color: $ig-orange;
+
       .image-gallery-svg {
         transform: scale(1.1);
       }
@@ -37,7 +40,7 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 
   &:focus {
     // a11y support
-    outline: 2px solid $ig-blue;
+    outline: 1px solid $ig-orange;
   }
 }
 
@@ -93,8 +96,8 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
   transform: translateY(-50%);
 
   .image-gallery-svg {
-    height: 120px;
-    width: 60px;
+    height: 60px;
+    width: 30px;
   }
 
   @media (max-width: $ig-small-screen) {
@@ -125,6 +128,7 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 .image-gallery-right-nav {
   right: 0;
 }
+
 // End of Icon styles
 
 .image-gallery {
@@ -177,12 +181,13 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
   &.left,
   &.right {
     display: inline-block;
-    width: calc(100% - 110px); // 100px + 10px for margin
+    width: calc(100% - 200px); // 100px + 10px for margin
 
     @media (max-width: $ig-small-screen) {
       width: calc(100% - 87px); // 81px + 6px for margin
     }
   }
+
   &.image-gallery-rtl {
     direction: rtl;
   }
@@ -194,6 +199,8 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
   position: relative;
   white-space: nowrap;
   text-align: center;
+  box-shadow: 0px 4px 4px rgba(61, 61, 61, 0.15);
+  border-radius: 12px;
 }
 
 .image-gallery-slide {
@@ -269,7 +276,7 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 
     &:focus,
     &:hover {
-      background: $ig-blue;
+      background: $ig-orange;
       transform: scale(1.1);
     }
 
@@ -285,11 +292,12 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
   &.thumbnails-wrapper-rtl {
     direction: rtl;
   }
+
   &.left,
   &.right {
     display: inline-block;
     vertical-align: top;
-    width: 100px;
+    width: 160px;
 
     @media (max-width: $ig-small-screen) {
       width: 81px; // 75px + 6px for border
@@ -303,12 +311,13 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
       position: absolute;
       top: 0;
 
+
       .image-gallery-thumbnail {
         display: block;
         margin-right: 0;
         padding: 0;
 
-        + .image-gallery-thumbnail {
+        +.image-gallery-thumbnail {
           margin-left: 0;
           margin-top: 2px;
         }
@@ -330,7 +339,9 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 
 .image-gallery-thumbnails {
   overflow: hidden;
-  padding: 5px 0;
+  padding: 20px 0;
+  margin-left: 1rem;
+  ;
 
   @media (max-width: $ig-small-screen) {
     padding: 3px 0;
@@ -347,19 +358,20 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
 
 .image-gallery-thumbnail {
   display: inline-block;
-  border: 4px solid transparent;
+  border: 1px solid transparent;
   transition: border .3s ease-out;
-  width: 100px;
+  width: 160px;
   background: transparent;
   padding: 0;
+  margin-bottom: 1rem;
 
   @media (max-width: $ig-small-screen) {
-    border: 3px solid transparent;
+    border: 1px solid transparent;
     width: 81px;
   }
 
-  + .image-gallery-thumbnail {
-    margin-left: 2px;
+  +.image-gallery-thumbnail {
+    margin-left: 10px;
   }
 
   .image-gallery-thumbnail-inner {
@@ -370,16 +382,20 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
     vertical-align: middle;
     width: 100%;
     line-height: 0;
+    box-shadow: 0px 4px 4px rgba(61, 61, 61, 0.15);
+    border-radius: 12px;
   }
 
   &.active,
   &:hover,
   &:focus {
     outline: none;
-    border: 4px solid $ig-blue;
+    border: 1px solid $ig-orange;
+    border-radius: 12px;
 
     @media (max-width: $ig-small-screen) {
-      border: 3px solid $ig-blue;
+      border: 1px solid $ig-orange;
+      border-radius: 12px;
     }
   }
 
